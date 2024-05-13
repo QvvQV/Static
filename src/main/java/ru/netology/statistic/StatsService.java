@@ -1,7 +1,7 @@
 package ru.netology.statistic;
 
 public class StatsService {
-    public int minSales(int[] sales) {
+    public int minSales(long[] sales) {
         int minMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
 
         for (int i = 0; i < sales.length; i++) {
@@ -13,7 +13,7 @@ public class StatsService {
     }
 
 //номер месяца, в котором был пик продаж, то есть осуществлены продажи на максимальную сумму
-    public int maxSales(int[] sales) {
+    public int maxSales(long[] sales) {
         int maxMonth = 0; // номер месяца с максимальными продажами среди просмотренных ранее
 
         for (int i = 0; i < sales.length; i++) {
@@ -25,8 +25,8 @@ public class StatsService {
     }
 
 //сумму всех продаж
-    public int sumSales(int[] sale) {
-        int sum = 0;
+    public long sumSales(long[] sale) {
+        long sum = 0;
 
         for (long purchase : sale) {
             sum += purchase;
@@ -35,16 +35,16 @@ public class StatsService {
     }
 
 //средняя сумма в месяц
-    public double averageSumSales(int[] sale) {
-        int numberSale = sale.length;
-        double sum = sumSales(sale); //вызов метода для вычисления суммы продаж
-        double averageMonth = sum / numberSale;
+    public long averageSumSales(long[] sale) {
+        long numberSale = sale.length;
+        long sum = sumSales(sale); //вызов метода для вычисления суммы продаж
+        long averageMonth = sum / numberSale;
         return averageMonth;
     }
 
 //количество месяцев, в которых продажи были ниже среднего
-    public int statisticMonthUnderAverage(int[] sale) {
-        int averageSum = (int) averageSumSales(sale);
+    public int statisticMonthUnderAverage(long[] sale) {
+        long averageSum = averageSumSales(sale);
         int numberUnderAverage = 0; //Запускаем цикл от 0 до длины массива sale
 
         for (int i = 0; i < sale.length; i++) { // если значение из массива меньше среднего, то увеличиваем счётчик numberUnderAverage на 1
@@ -56,8 +56,8 @@ public class StatsService {
     }
 
 //количество месяцев, в которых продажи были выше среднего
-    public int statisticMonthOverAverage(int[] sale) {
-        int averageSum = (int) averageSumSales(sale);
+    public int statisticMonthOverAverage(long[] sale) {
+        long averageSum = averageSumSales(sale);
         int numberOverAverage = 0; //Запускаем цикл от 0 до длины массива sale
 
         for (int i = 0; i < sale.length; i++) {
